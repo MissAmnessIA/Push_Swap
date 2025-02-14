@@ -19,16 +19,42 @@ t_stack *get_max(t_stack *head)
 	return (max);
 }
 
+t_stack *get_min(t_stack *head)
+{
+	int		n;
+	t_stack	*min;
+
+	min = NULL;
+	n = INT_MAX;
+	while(head)
+	{
+		if (n > head->n)
+		{
+			n = head->n;
+			min  = head;
+		}
+		head = head->next;
+	}
+	return (min);
+}
+
 t_stack	*get_cheapest(t_stack *head)
 {
 	t_stack	*cheapest;
 
 	cheapest = head;
-	while (head)
+	if (!head)
+		return NULL;
+	if (stack_len(head) == 1)
+		return (head);
+	else
 	{
-		if (cheapest->cost > head->cost)
-			cheapest = head;
-		head = head->next;
+		while (head)
+		{
+			if (cheapest->cost > head->cost)
+				cheapest = head;
+			head = head->next;
+		}
 	}
 	return (cheapest);
 }

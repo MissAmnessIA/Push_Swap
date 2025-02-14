@@ -18,7 +18,7 @@ void	rotate(t_stack **head, t_stack **head2, char c)
 	t_stack *last;
 
 	temp = (*head);
-	last = last_node(*head);
+	last = get_last_node(*head);
 	(*head) = (*head)->next;
 	last->next = temp;
 	temp->next = NULL;
@@ -34,7 +34,7 @@ void	rrotate(t_stack **head, t_stack **head2, char c)
 	t_stack *last;
 
 	temp = (*head);
-	last = last_node(*head);
+	last = get_last_node(*head);
 	while (temp->next->next != NULL)
 		temp = temp->next;
 	last->next = (*head);
@@ -65,4 +65,21 @@ void	push(t_stack **push, t_stack **get, char c)
 		(*get) = temp;
 	}
 	ft_printf("p%c\n", c);
+}
+
+void	min_on_top(t_stack **a)
+{
+	t_stack *min;
+	min = get_min(*a);
+
+	if (min->mid == 0)
+	{
+		while ((*a) != min)
+			rotate(a,NULL, 'a');
+	}
+	else if (min->mid == 1)
+	{
+		while ((*a) != min)
+			rrotate(a,NULL,'a');
+	}
 }

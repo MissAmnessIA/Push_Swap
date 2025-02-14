@@ -14,29 +14,19 @@ int main (int argc, char **argv)
 	}
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
+	if(!argv[1])
+	{
+		free(argv[0]);
+		free(argv[1]);
+		return (0);
+	}
 	else
 		argv++;
 	create_stack_a(argv, &a);
 	sort_stacks(&a, &b);
 
-
-
-
-	t_stack *temp;
-	temp = a;
-	ft_printf("Stack a:\n");
-	while (temp)
-	{
-		ft_printf("%i\n", temp->n);
-		temp = temp->next;
-	}
-	temp = b;
-	ft_printf("Stack b:\n");
-	while (temp)
-	{
-		ft_printf("%i\n", temp->n);
-		temp = temp->next;
-	}
+	print_stack(a, 'a');
+	print_stack(b, 'b');
 
 
 	free_stack(b);

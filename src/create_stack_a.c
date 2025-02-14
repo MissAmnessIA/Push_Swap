@@ -14,6 +14,8 @@ bool	is_digit_str(char *str)
 
 bool	is_dup(t_stack *head, int n)
 {
+	if (stack_len(head) == 1)
+		return (0);
 	while (head)
 	{
 		if (head->n == n)
@@ -26,14 +28,14 @@ bool	is_dup(t_stack *head, int n)
 void	create_stack_a(char **argv, t_stack **a)
 {
 	int	i;
-	int	n;
+	long long int	n;
 
 	i = 0;
 	while (argv[i])
 	{
 		if (!is_digit_str(argv[i]))
 			free_errors(*a);
-		n = ft_atoi(argv[i]);
+		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(*a);
 		if(is_dup(*a, n))
