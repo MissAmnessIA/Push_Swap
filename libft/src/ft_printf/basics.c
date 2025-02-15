@@ -18,7 +18,7 @@ int	putstr(char *str, int bytes)
 	i = 0;
 	if (!str)
 	{
-		bytes = putstr("(null)",bytes);
+		bytes = putstr("(null)", bytes);
 		return (bytes);
 	}
 	while (str[i])

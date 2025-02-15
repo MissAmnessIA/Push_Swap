@@ -19,10 +19,11 @@ void	set_cheapest(t_stack *head)
 		}
 	}
 }
+
 void	set_index(t_stack *head)
 {
 	int	i;
-	int mid_pos;
+	int	mid_pos;
 
 	mid_pos = (stack_len(head) / 2) + 1;
 	i = 0;
@@ -41,7 +42,7 @@ void	set_index(t_stack *head)
 void	set_cost(t_stack *node, t_stack *target)
 {
 	int	node_len;
-	int target_len;
+	int	target_len;
 
 	node_len = stack_len(node);
 	target_len = stack_len(target);
@@ -53,7 +54,7 @@ void	set_cost(t_stack *node, t_stack *target)
 		if (node->target_node->mid == 0)
 			node->cost += node->target_node->index;
 		else if (node->target_node->mid == 1)
-			node->cost += target_len - node->target_node->index;		
+			node->cost += target_len - node->target_node->index;
 		node = node->next;
 	}
 }

@@ -3,7 +3,8 @@
 void	get_target_node_a(t_stack *a, t_stack *b)
 {
 	t_stack	*target_node;
-	t_stack *temp;
+	t_stack	*temp;
+
 	while (a)
 	{
 		target_node = NULL;
@@ -26,7 +27,8 @@ void	get_target_node_a(t_stack *a, t_stack *b)
 void	get_target_node_b(t_stack *a, t_stack *b)
 {
 	t_stack	*target_node;
-	t_stack *temp;
+	t_stack	*temp;
+
 	while (b)
 	{
 		target_node = NULL;

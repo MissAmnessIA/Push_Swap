@@ -4,14 +4,14 @@ void	sort_three(t_stack **a)
 {
 	if (is_sorted(*a))
 		return ;
-	if((*a)->n < (*a)->next->n
-	&& (*a)->n < (*a)->next->next->n)
+	if ((*a)->n < (*a)->next->n
+		&& (*a)->n < (*a)->next->next->n)
 		swap(a, NULL, 'a');
 	else if ((*a)->n > (*a)->next->n
-	&& (*a)->n < (*a)->next->next->n)
+		&& (*a)->n < (*a)->next->next->n)
 		swap(a, NULL, 'a');
 	else if ((*a)->n > (*a)->next->n
-	&& (*a)->next->next->n < (*a)->next->n)
+		&& (*a)->next->next->n < (*a)->next->n)
 		swap(a, NULL, 'a');
 	if (!is_sorted(*a) && (*a)->next->n < (*a)->next->next->n)
 		rotate(a, NULL, 'a');
@@ -21,8 +21,8 @@ void	sort_three(t_stack **a)
 
 void	prepare_to_push(t_stack **head, t_stack **target, char ch, char ct)
 {
-	t_stack *cheapest;
-	t_stack *target_node;
+	t_stack	*cheapest;
+	t_stack	*target_node;
 
 	cheapest = get_cheapest(*head);
 	target_node = cheapest->target_node;
@@ -41,6 +41,7 @@ void	prepare_to_push(t_stack **head, t_stack **target, char ch, char ct)
 	if ((*target) != target_node)
 		target_on_top(target, target_node, ct);
 }
+
 void	pass_a_to_b(t_stack **a, t_stack **b)
 {
 	push(a, b, 'b');
@@ -57,7 +58,7 @@ void	pass_a_to_b(t_stack **a, t_stack **b)
 	}
 }
 
-void pass_b_to_a(t_stack **a, t_stack **b)
+void	pass_b_to_a(t_stack **a, t_stack **b)
 {
 	while (stack_len(*b) != 0)
 	{
@@ -69,12 +70,13 @@ void pass_b_to_a(t_stack **a, t_stack **b)
 		push(b, a, 'a');
 	}
 }
+
 void	sort_stacks(t_stack **a, t_stack **b)
 {
-	if(is_sorted(*a))
+	if (is_sorted(*a))
 		return ;
 	if (stack_len(*a) == 2)
-		swap(a,NULL, 'a');
+		swap(a, NULL, 'a');
 	else if (stack_len(*a) == 3)
 		sort_three(a);
 	else
@@ -84,5 +86,5 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pass_b_to_a(a, b);
 		set_values(*a, *b);
 		min_on_top(a);
-	} 
+	}
 }

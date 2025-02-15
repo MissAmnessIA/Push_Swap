@@ -32,4 +32,3 @@ int	ft_printf(char const *str, ...)
 	va_end(args);
 	return (bytes);
 }
-

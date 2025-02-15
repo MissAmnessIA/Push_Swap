@@ -2,8 +2,8 @@
 
 void	free_stack(t_stack *head)
 {
-	t_stack *temp;
-	
+	t_stack	*temp;
+
 	temp = head;
 	if (head)
 	{
@@ -52,27 +52,28 @@ void	target_on_top(t_stack **head, t_stack *target, char c_head)
 	if (target->mid == 0)
 	{
 		while ((*head) != target)
-			rotate(head,NULL, c_head);
+			rotate(head, NULL, c_head);
 	}
 	else if (target->mid == 1)
 	{
 		while ((*head) != target)
-			rrotate(head,NULL, c_head);
+			rrotate(head, NULL, c_head);
 	}
 }
+
 void	cheapest_on_top(t_stack **head, char c_head)
 {
-	t_stack *cheapest;
-	cheapest = get_cheapest(*head);
+	t_stack	*cheapest;
 
+	cheapest = get_cheapest(*head);
 	if (cheapest->mid == 0)
 	{
 		while ((*head) != cheapest)
-			rotate(head,NULL, c_head);
+			rotate(head, NULL, c_head);
 	}
 	else if (cheapest->mid == 1)
 	{
 		while ((*head) != cheapest)
-			rrotate(head,NULL, c_head);
+			rrotate(head, NULL, c_head);
 	}
 }

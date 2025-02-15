@@ -25,10 +25,8 @@ char	*read_fd(int fd, char *saved)
 	while (!ft_strchr(saved, '\n') && b_read != 0)
 	{
 		readed = (char *)malloc(BUFFER_SIZE + 1);
-		if (!readed)
-			return (NULL);
 		b_read = read(fd, readed, BUFFER_SIZE);
-		if (b_read <= 0)
+		if (b_read <= 0 || !readed)
 		{
 			free (readed);
 			free (saved);

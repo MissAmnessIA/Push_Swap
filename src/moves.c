@@ -1,6 +1,6 @@
 #include "../inc/push_swap.h"
 
-void	swap(t_stack **head,t_stack **head2, char c)
+void	swap(t_stack **head, t_stack **head2, char c)
 {
 	int	temp;
 
@@ -14,8 +14,8 @@ void	swap(t_stack **head,t_stack **head2, char c)
 
 void	rotate(t_stack **head, t_stack **head2, char c)
 {
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	temp = (*head);
 	last = get_last_node(*head);
@@ -30,8 +30,8 @@ void	rotate(t_stack **head, t_stack **head2, char c)
 
 void	rrotate(t_stack **head, t_stack **head2, char c)
 {
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	temp = (*head);
 	last = get_last_node(*head);
@@ -48,9 +48,9 @@ void	rrotate(t_stack **head, t_stack **head2, char c)
 
 void	push(t_stack **push, t_stack **get, char c)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	if(!(*push))
+	if (!(*push))
 		return ;
 	temp = (*push);
 	(*push) = (*push)->next;
@@ -69,17 +69,17 @@ void	push(t_stack **push, t_stack **get, char c)
 
 void	min_on_top(t_stack **a)
 {
-	t_stack *min;
-	min = get_min(*a);
+	t_stack	*min;
 
+	min = get_min(*a);
 	if (min->mid == 0)
 	{
 		while ((*a) != min)
-			rotate(a,NULL, 'a');
+			rotate(a, NULL, 'a');
 	}
 	else if (min->mid == 1)
 	{
 		while ((*a) != min)
-			rrotate(a,NULL,'a');
+			rrotate(a, NULL, 'a');
 	}
 }

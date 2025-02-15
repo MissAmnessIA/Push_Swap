@@ -1,37 +1,37 @@
 #include "../inc/push_swap.h"
 
-t_stack *get_max(t_stack *head)
+t_stack	*get_max(t_stack *head)
 {
 	int		n;
 	t_stack	*max;
 
 	max = NULL;
 	n = INT_MIN;
-	while(head)
+	while (head)
 	{
 		if (n < head->n)
 		{
 			n = head->n;
-			max  = head;
+			max = head;
 		}
 		head = head->next;
 	}
 	return (max);
 }
 
-t_stack *get_min(t_stack *head)
+t_stack	*get_min(t_stack *head)
 {
 	int		n;
 	t_stack	*min;
 
 	min = NULL;
 	n = INT_MAX;
-	while(head)
+	while (head)
 	{
 		if (n > head->n)
 		{
 			n = head->n;
-			min  = head;
+			min = head;
 		}
 		head = head->next;
 	}
@@ -44,7 +44,7 @@ t_stack	*get_cheapest(t_stack *head)
 
 	cheapest = head;
 	if (!head)
-		return NULL;
+		return (NULL);
 	if (stack_len(head) == 1)
 		return (head);
 	else

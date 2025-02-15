@@ -1,10 +1,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../libft/inc/ft_printf.h"
-#include "../libft/inc/libft.h"
-#include <limits.h>
-#include <stdbool.h>
+# include "../libft/inc/ft_printf.h"
+# include "../libft/inc/libft.h"
+# include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
@@ -40,23 +40,23 @@ void	get_target_node_a(t_stack *a, t_stack *b);
 void	get_target_node_b(t_stack *a, t_stack *b);
 
 //moves
-void	swap(t_stack **head,t_stack **head2, char c);
+void	swap(t_stack **head, t_stack **head2, char c);
 void	rotate(t_stack **head, t_stack **head2, char c);
 void	rrotate(t_stack **head, t_stack **head2, char c);
 void	push(t_stack **push, t_stack **get, char c);
 void	min_on_top(t_stack **a);
 
 //get nodes
-t_stack *get_max(t_stack *head);
-t_stack *get_min(t_stack *head);
+t_stack	*get_max(t_stack *head);
+t_stack	*get_min(t_stack *head);
 t_stack	*get_cheapest(t_stack *head);
 t_stack	*get_last_node(t_stack *head);
 
 //utils
-void	free_errors(t_stack *head);
+void	free_errors(t_stack *head, char **argv);
 bool	is_sorted(t_stack *head);
-int		ncompare_m(int i, int j);
 long	ft_atol(const char *nptr);
+void	free_split(char **str);
 
 void	print_stack(t_stack *head, char c);
 

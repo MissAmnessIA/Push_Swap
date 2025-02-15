@@ -1,16 +1,17 @@
 #include "../inc/push_swap.h"
 
-void	free_errors(t_stack *head)
+void	free_errors(t_stack *head, char **argv)
 {
-	if(head)
+	if (head)
 		free_stack(head);
+	free_split(argv);
 	ft_printf("Wrong format...*-*\n");
 	exit(1);
 }
 
 bool	is_sorted(t_stack *head)
 {
-	t_stack *next;
+	t_stack	*next;
 
 	while (head->next)
 	{
@@ -44,14 +45,12 @@ long	ft_atol(const char *nptr)
 	return (i / 10 * neg);
 }
 
-//utils tests
-
-void	print_stack(t_stack *head, char c)
+void	free_split(char **str)
 {
-	ft_printf("Stack %c:\n", c);
-	while (head)
-	{
-		ft_printf("%i\n", head->n);
-		head = head->next;
-	}
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
 }

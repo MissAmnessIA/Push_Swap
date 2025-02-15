@@ -1,4 +1,5 @@
 #include "../inc/push_swap.h"
+
 bool	is_digit_str(char *str)
 {
 	int	i;
@@ -27,19 +28,19 @@ bool	is_dup(t_stack *head, int n)
 
 void	create_stack_a(char **argv, t_stack **a)
 {
-	int	i;
+	int				i;
 	long long int	n;
 
 	i = 0;
 	while (argv[i])
 	{
 		if (!is_digit_str(argv[i]))
-			free_errors(*a);
+			free_errors(*a, argv);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(*a);
-		if(is_dup(*a, n))
-			free_errors(*a);
+			free_errors(*a, argv);
+		if (is_dup(*a, n))
+			free_errors(*a, argv);
 		add_last(a, n);
 		i++;
 	}
