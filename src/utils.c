@@ -1,10 +1,11 @@
 #include "../inc/push_swap.h"
 
-void	free_errors(t_stack *head, char **argv)
+void	free_errors(t_stack *head, char **argv, int is_split)
 {
 	if (head)
 		free_stack(head);
-	free_split(argv);
+	if (is_split)
+		free_split(argv);
 	ft_printf("Wrong format...*-*\n");
 	exit(1);
 }

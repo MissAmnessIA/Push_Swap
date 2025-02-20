@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		argv++;
-	create_stack_a(argv, &a);
+	create_stack_a(argv, &a, is_split);
 	if (is_split)
 		free_split(argv);
 	sort_stacks(&a, &b);
