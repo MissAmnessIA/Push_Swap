@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmesa-ke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 17:49:36 by vmesa-ke          #+#    #+#             */
+/*   Updated: 2025/02/22 17:49:39 by vmesa-ke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../inc/push_swap.h"
 
 void	free_stack(t_stack *head)
@@ -5,9 +16,11 @@ void	free_stack(t_stack *head)
 	t_stack	*temp;
 
 	temp = head;
-	if (head)
+	if (stack_len(head) == 1)
+		free(head);
+	else if (head)
 	{
-		while (temp->next)
+		while (head)
 		{
 			temp = head;
 			head = head->next;
