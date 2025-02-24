@@ -17,6 +17,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
+void	free_stack(t_stack *head);
 //create stack_a
 void	create_stack_a(char **argv, t_stack **a, int is_split);
 bool	is_digit_str(char *str);

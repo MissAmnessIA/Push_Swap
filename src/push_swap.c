@@ -11,6 +11,32 @@
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
 
+int	is_empty(char **argv)
+{
+	int i;
+	int j;
+	int	is_n;
+
+	i = 0;
+	j = 0;
+	while (argv[i])
+	{
+		is_n = 1;
+		while (argv[i][j])
+		{
+			if (!argv[i][j])
+				return (1);
+			if (ft_isdigit(argv[i][j]))
+				is_n = 1;
+			j++;
+		}
+		if (is_n == 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -32,6 +58,8 @@ int	main(int argc, char **argv)
 	}
 	else
 		argv++;
+	if (is_empty(argv))
+		free_errors(NULL, argv, is_split);
 	create_stack_a(argv, &a, is_split);
 	if (is_split)
 		free_split(argv);
