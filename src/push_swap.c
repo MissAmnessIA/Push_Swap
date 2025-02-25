@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
 
-void	create_stack_a(t_stack **a, int	argc, char **argv)
+void	create_stack_a(t_stack **a, int argc, char **argv)
 {
 	char	**args;
 	int		i;
@@ -35,8 +35,8 @@ void	create_stack_a(t_stack **a, int	argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		return (-1);

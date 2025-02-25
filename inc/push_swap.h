@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmesa-ke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 20:53:32 by vmesa-ke          #+#    #+#             */
+/*   Updated: 2025/02/25 20:53:36 by vmesa-ke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -17,15 +28,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-
 //create stack_a
-void	create_stack_a(t_stack **a, int	argc, char **argv);
+void	create_stack_a(t_stack **a, int argc, char **argv);
 
 //check args
 void	ft_check_args(int argc, char **argv);
-int	is_num(char *num);
-int	ft_contains(int num, char **argv, int i);
-
+int		is_num(char *num);
+int		ft_contains(int num, char **argv, int i);
 
 //sort stacks
 void	sort_stacks(t_stack **a, t_stack **b);

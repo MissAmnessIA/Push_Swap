@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmesa-ke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 20:53:01 by vmesa-ke          #+#    #+#             */
+/*   Updated: 2025/02/25 20:53:04 by vmesa-ke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../inc/push_swap.h"
 
 int	ft_contains(int num, char **argv, int i)
@@ -14,10 +25,10 @@ int	ft_contains(int num, char **argv, int i)
 
 int	is_num(char *num)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(num[0] == '-')
+	if (num[0] == '-')
 		i++;
 	while (num[i])
 	{
@@ -51,9 +62,8 @@ void	ft_check_args(int argc, char **argv)
 		if (!is_num(args[i]))
 			ft_error("Error");
 		temp = ft_atoi(args[i]);
-		if (ft_contains(temp, args, i))
-			ft_error("Error");
-		if (temp < INT_MIN || temp > INT_MAX)
+		if (ft_contains(temp, args, i) || temp < INT_MIN
+			|| temp > INT_MAX)
 			ft_error("Error");
 		i++;
 	}
