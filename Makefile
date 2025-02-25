@@ -9,8 +9,9 @@ CC					= gcc
 CFLAGS				= -Wall -Werror -Wextra -I
 RM					= rm -f
 
-SRC					= $(SRC_DIR)create_stack_a.c \
-					  $(SRC_DIR)get_nodes.c \
+ 
+SRC					= $(SRC_DIR)get_nodes.c \
+					  $(SRC_DIR)check_args.c \
 					  $(SRC_DIR)moves.c \
 					  $(SRC_DIR)push_swap.c \
 					  $(SRC_DIR)set_values.c \

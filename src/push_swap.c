@@ -11,59 +11,53 @@
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
 
-int	is_empty(char **argv)
+void	create_stack_a(t_stack **a, int	argc, char **argv)
 {
-	int i;
-	int j;
-	int	is_n;
+	char	**args;
+	int		i;
 
 	i = 0;
-	j = 0;
-	while (argv[i])
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	else
 	{
-		is_n = 1;
-		while (argv[i][j])
-		{
-			if (!argv[i][j])
-				return (1);
-			if (ft_isdigit(argv[i][j]))
-				is_n = 1;
-			j++;
-		}
-		if (is_n == 0)
-			return (1);
+		i = 1;
+		args = argv;
+	}
+	while (args[i])
+	{
+		add_last(a, ft_atoi(args[i]));
 		i++;
 	}
-	return (0);
+	if (argc == 2)
+		free_split(args);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		is_split;
+	t_stack *a;
+	t_stack *b;
 
+	if (argc < 2)
+		return (-1);
+	ft_check_args(argc, argv);
 	a = NULL;
 	b = NULL;
-	is_split = 0;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	create_stack_a(&a, argc, argv);
+	if (is_sorted(a))
 	{
-		ft_printf("Wrong format...*-*\n");
-		return (1);
+		free_stack(a);
+		ft_printf("Hola");
+		return (0);
 	}
-	if (argc == 2)
+	if (!a)
 	{
-		argv = ft_split(argv[1], ' ');
-		is_split = 1;
+		ft_error("Error");
+		free_stack(a);
+		return (0);
 	}
-	else
-		argv++;
-	if (is_empty(argv))
-		free_errors(NULL, argv, is_split);
-	create_stack_a(argv, &a, is_split);
-	if (is_split)
-		free_split(argv);
 	sort_stacks(&a, &b);
+	print_stack(a);
 	free_stack(a);
 	return (0);
 }

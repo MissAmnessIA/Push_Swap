@@ -84,8 +84,6 @@ void	pass_b_to_a(t_stack **a, t_stack **b)
 
 void	sort_stacks(t_stack **a, t_stack **b)
 {
-	if (is_sorted(*a))
-		return ;
 	if (stack_len(*a) == 2)
 		swap(a, NULL, 'a');
 	else if (stack_len(*a) == 3)

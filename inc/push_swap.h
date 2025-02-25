@@ -17,11 +17,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-void	free_stack(t_stack *head);
+
 //create stack_a
-void	create_stack_a(char **argv, t_stack **a, int is_split);
-bool	is_digit_str(char *str);
-bool	is_dup(t_stack *head, int n);
+void	create_stack_a(t_stack **a, int	argc, char **argv);
+
+//check args
+void	ft_check_args(int argc, char **argv);
+int	is_num(char *num);
+int	ft_contains(int num, char **argv, int i);
+
 
 //sort stacks
 void	sort_stacks(t_stack **a, t_stack **b);
@@ -54,12 +58,12 @@ t_stack	*get_cheapest(t_stack *head);
 t_stack	*get_last_node(t_stack *head);
 
 //utils
-void	free_errors(t_stack *head, char **argv, int is_split);
-bool	is_sorted(t_stack *head);
-long	ft_atol(const char *nptr);
+void	free_errors(t_stack *head, char **argv);
 void	free_split(char **str);
+bool	is_sorted(t_stack *head);
+void	ft_error(char *str);
 
-void	print_stack(t_stack *head, char c);
+void	print_stack(t_stack *head);
 
 //utils list
 void	free_stack(t_stack *head);
