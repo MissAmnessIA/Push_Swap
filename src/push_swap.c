@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	if (is_sorted(a))
 	{
 		free_stack(a);
-		ft_printf("Hola");
 		return (0);
 	}
 	if (!a)
@@ -57,7 +56,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sort_stacks(&a, &b);
-	print_stack(a);
 	free_stack(a);
 	return (0);
 }

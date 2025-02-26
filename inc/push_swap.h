@@ -35,6 +35,7 @@ void	create_stack_a(t_stack **a, int argc, char **argv);
 void	ft_check_args(int argc, char **argv);
 int		is_num(char *num);
 int		ft_contains(int num, char **argv, int i);
+void	its_ok(char **args, int argv);
 
 //sort stacks
 void	sort_stacks(t_stack **a, t_stack **b);
