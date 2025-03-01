@@ -43,3 +43,15 @@ void	free_split(char **str)
 		free(str[i]);
 	free(str);
 }
+
+void	print_stack(t_stack *head)
+{
+	if (head)
+	{
+		while (head)
+		{
+			ft_printf("%i\n", head->n);
+			head = head->next;
+		}
+	}
+}

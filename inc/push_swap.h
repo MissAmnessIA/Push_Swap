@@ -28,29 +28,38 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-//create stack_a
-void	create_stack_a(t_stack **a, int argc, char **argv);
 
 //check args
-void	ft_check_args(int argc, char **argv);
-int		is_num(char *num);
-int		ft_contains(int num, char **argv, int i);
-void	its_ok(char **args, int argv);
+void    is_digit(char *str);
+void    check_digits(char *str);
+char    *join_args(int argc, char **argv);
+char	**check_args(char **argv, int argc);
+
+//create stack a
+long	ft_atol(char *nptr);
+int		is_dup(int n, t_stack *a);
+void	create_stack_a(t_stack **a, char **argv);
 
 //sort stacks
-void	sort_stacks(t_stack **a, t_stack **b);
 void	sort_three(t_stack **a);
+void	prepare_to_push(t_stack **head, t_stack **target, char ch, char ct);
 void	pass_a_to_b(t_stack **a, t_stack **b);
 void	pass_b_to_a(t_stack **a, t_stack **b);
-void	prepare_to_push(t_stack **head, t_stack **target, char ch, char ct);
+void	sort_stacks(t_stack **a, t_stack **b);
 
 //set values
-void	set_values(t_stack *head1, t_stack *head2);
 void	set_cheapest(t_stack *head);
 void	set_index(t_stack *head);
 void	set_cost(t_stack *node, t_stack *target);
+void	set_values(t_stack *head1, t_stack *head2);
 
-//target node
+//get nodes
+t_stack	*get_max(t_stack *head);
+t_stack	*get_min(t_stack *head);
+t_stack	*get_cheapest(t_stack *head);
+t_stack	*get_last_node(t_stack *head);
+
+//set target node
 void	get_target_node_a(t_stack *a, t_stack *b);
 void	get_target_node_b(t_stack *a, t_stack *b);
 
@@ -61,18 +70,10 @@ void	rrotate(t_stack **head, t_stack **head2, char c);
 void	push(t_stack **push, t_stack **get, char c);
 void	min_on_top(t_stack **a);
 
-//get nodes
-t_stack	*get_max(t_stack *head);
-t_stack	*get_min(t_stack *head);
-t_stack	*get_cheapest(t_stack *head);
-t_stack	*get_last_node(t_stack *head);
-
 //utils
-void	free_errors(t_stack *head, char **argv);
-void	free_split(char **str);
-bool	is_sorted(t_stack *head);
 void	ft_error(char *str);
-
+bool	is_sorted(t_stack *head);
+void	free_split(char **str);
 void	print_stack(t_stack *head);
 
 //utils list

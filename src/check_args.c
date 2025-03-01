@@ -11,68 +11,85 @@
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
 
-int	ft_contains(int num, char **argv, int i)
+void    is_digit(char *str)
 {
-	i++;
-	while (argv[i])
-	{
-		if (ft_atoi(argv[i]) == num)
-			return (1);
-		i++;
-	}
-	return (0);
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]) && str[i] != ' ' 
+			&& str[i] != '-' && str[i] != '+')
+            ft_error("No digit\n");
+        i++;
+    }
 }
-
-int	is_num(char *num)
+void    check_digits(char *str)
 {
-	int	i;
+    int i;
+    int find_n;
 
-	i = 0;
-	if (num[0] == '-')
-		i++;
-	while (num[i])
-	{
-		if (!ft_isdigit(num[i]))
-			return (0);
-		i++;
-	}
-	return (1);
+    i = 0;
+    find_n = 0;
+    while (str[i])
+    {
+        if (ft_isdigit(str[i]))
+            find_n = 1;
+        i++;
+    }
+    if (find_n == 0)
+    {
+        ft_printf("Wrong argument\n");
+        exit(1);
+    }
 }
-
-void	its_ok(char **args, int argc)
+char    *join_args(int argc, char **argv)
 {
-	int		i;
-	long	temp;
+    char *joined;
+    char *temp;
+    int i;
 
-	i = 0;
-	if (argc != 2)
-		i = 1;
-	while (args[i])
-	{
-		ft_printf("%s\n", args[i]);
-		if (!is_num(args[i]))
-			ft_error("Error");
-		temp = ft_atoi(args[i]);
-		if (ft_contains(temp, args, i) || temp < INT_MIN
-			|| temp > INT_MAX)
-			ft_error("Error");
-		i++;
-	}
+    i = 1;
+    if (argc == 2)
+        joined = ft_strdup(argv[1]);
+    else
+    {
+        joined = (char *)malloc(sizeof(char *));
+        while (argv[i])
+        {
+            temp = joined;
+            joined = ft_strjoin(temp, argv[i]);
+            if (temp)
+                free(temp);
+            temp = joined;
+            joined = ft_strjoin(temp, " ");
+            free(temp);
+            i++;
+        }
+    }
+    return (joined);
 }
-
-void	ft_check_args(int argc, char **argv)
+char	**check_args(char **argv, int argc)
 {
-	char	**args;
+	char *joined;
+    char **splited;
 
-	if (argc == 2)
-	{
-		args = ft_split(argv[1], ' ');
-		if (!args)
-			ft_error("Error");
-	}
-	else
-		args = argv;
-	its_ok(args, argc);
-	if (argc == 2)
-		free_split(args);
+	int i;
+
+    i = 1;
+    while (argv[i])
+    {
+        if (ft_strlen(argv[i]) == 0)
+        {
+            ft_printf("Is empty\n");
+            exit(1);
+        }
+        is_digit(argv[i]);
+        check_digits(argv[i]);
+        i++;
+    }
+    joined = join_args(argc, argv);
+    splited = ft_split(joined, ' ');
+	free(joined);
+	return (splited);
 }
