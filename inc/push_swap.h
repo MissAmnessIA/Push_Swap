@@ -12,7 +12,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/inc/ft_printf.h"
 # include "../libft/inc/libft.h"
 # include <limits.h>
 # include <stdbool.h>

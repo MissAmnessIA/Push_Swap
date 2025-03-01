@@ -20,7 +20,7 @@ void    is_digit(char *str)
     {
         if (!ft_isdigit(str[i]) && str[i] != ' ' 
 			&& str[i] != '-' && str[i] != '+')
-            ft_error("No digit\n");
+            ft_error("No digit");
         i++;
     }
 }
