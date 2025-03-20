@@ -9,14 +9,14 @@
 /*   Updated: 2024/10/28 16:54:12 by vmesa-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stddef.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 # include <fcntl.h>
-
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100000000
 # endif
@@ -82,12 +82,13 @@ char	*strjoin(char *save, char *readed);
 char	*strchr(const char *s, int c);
 
 //ft_printf
-int	ptrcheck(unsigned long long ptr, int bytes);
-int	type(char c, va_list args, int bytes);
-int	putstr(char *str, int bytes);
-int	putchr(int c, int bytes);
-int	put_ptr_hex(unsigned long long ptr, int bytes);
-int	ft_putnbr(int n, int bytes);
-int	unsignedint(unsigned int n, int bytes);
-int	print_hex(unsigned int n, int bytes, char c);
-int	ft_printf(char const *str, ...);
+int		ptrcheck(unsigned long long ptr, int bytes);
+int		type(char c, va_list args, int bytes);
+int		putstr(char *str, int bytes);
+int		putchr(int c, int bytes);
+int		put_ptr_hex(unsigned long long ptr, int bytes);
+int		ft_putnbr(int n, int bytes);
+int		unsignedint(unsigned int n, int bytes);
+int		print_hex(unsigned int n, int bytes, char c);
+int		ft_printf(char const *str, ...);
+#endif

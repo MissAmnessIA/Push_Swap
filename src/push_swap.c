@@ -15,7 +15,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	char **args;
+	char	**args;
 
 	b = NULL;
 	a = NULL;

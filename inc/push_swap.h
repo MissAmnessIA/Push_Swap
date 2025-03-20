@@ -27,11 +27,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-
 //check args
-void    is_digit(char *str);
-void    check_digits(char *str);
-char    *join_args(int argc, char **argv);
+void	is_digit(char *str);
+void	check_digits(char *str);
+char	*join_args(int argc, char **argv);
 char	**check_args(char **argv, int argc);
 
 //create stack a

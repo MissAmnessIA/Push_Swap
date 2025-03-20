@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_stack_a.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmesa-ke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/20 18:52:45 by vmesa-ke          #+#    #+#             */
+/*   Updated: 2025/03/20 18:52:49 by vmesa-ke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../inc/push_swap.h"
 
 long	ft_atol(char *nptr)
 {
 	long	i;
-	int			neg;
+	int		neg;
 
 	i = 0;
 	neg = 1;
@@ -24,8 +35,8 @@ long	ft_atol(char *nptr)
 		nptr++;
 	}
 	return (i / 10 * neg);
-
 }
+
 int	is_dup(int n, t_stack *a)
 {
 	while (a)
@@ -36,10 +47,11 @@ int	is_dup(int n, t_stack *a)
 	}
 	return (0);
 }
+
 void	create_stack_a(t_stack **a, char **argv)
 {
 	int		i;
-	long temp;
+	long	temp;
 
 	i = 0;
 	while (argv[i])
